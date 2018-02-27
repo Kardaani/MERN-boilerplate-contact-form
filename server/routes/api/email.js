@@ -57,8 +57,8 @@ module.exports = (app) => {
         function (callback) {
           sendEmail(
             callback,
-            'kari.eronen71@gmail.com',
-            ['kari.eronenoy@gmail.com'],
+            '',
+            [''],
             'Subject Line',
             'Text Content',
             '<p style="font-size: 32px;">HTML Content</p>'
