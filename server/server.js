@@ -19,7 +19,9 @@ const port  = process.env.PORT || 8080;
 // ================================================================================================
 
 // Set up Mongoose
-mongoose.connect(isDev ? config.db_dev : config.db, {
+
+mongoose.connect( config.db , {
+//mongoose.connect(isDev ? config.db_dev : config.db, {
   useMongoClient: true,
 });
 mongoose.Promise = global.Promise;
@@ -29,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // API routes
-require('./routes')(app);
+require('./routes/api/email')(app);
 
 if (isDev) {
   const compiler = webpack(webpackConfig);
@@ -62,6 +64,7 @@ if (isDev) {
 }
 
 app.listen(port, '0.0.0.0', (err) => {
+
   if (err) {
     console.log(err);
   }
